@@ -5,6 +5,11 @@ import UTN.ABSTRACT_FACTORY.clases.ComputerFactory;
 import UTN.ABSTRACT_FACTORY.clases.PcFactory;
 import UTN.ABSTRACT_FACTORY.clases.ServerFactory;
 import UTN.BUILDER.*;
+import UTN.DECORATOR.clases.AireAcondicionado;
+import UTN.DECORATOR.clases.Auto;
+import UTN.DECORATOR.clases.FiatUno;
+import UTN.DECORATOR.clases.Mp3Player;
+import UTN.DECORATOR.interfaces.IVendible;
 import UTN.FACTORY_METHOD.clases.ConcreteCreator;
 import UTN.FACTORY_METHOD.interfaces.IProduct;
 import UTN.OBSERVER.Producto;
@@ -82,5 +87,12 @@ public class App
         oneProduct.cambiarPrecio(40);
         oneProduct.cambiarPrecio(50);
         System.out.println("*********************FIN Observer***************************************");
+        System.out.println("*********************Decorator***************************************");
+        IVendible auto= new FiatUno();
+        auto= new Mp3Player(auto);
+        auto= new AireAcondicionado(auto);
+        System.out.println(auto.getDescripcion());
+        System.out.println(auto.getPrecio());
+        System.out.println("*********************FIN Decorator************************************");
     }
 }
